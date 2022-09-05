@@ -6,26 +6,27 @@ class Movies extends Component{
     constructor(props){
         super(props)
         this.state = {
-            datosPeliculas: [],
+            peliculas: [],
         }
     }
+
     componentDidMount(){
-        fetch("https://api.themoviedb.org/3/movie/popular?api_key=your_api_key")
+        fetch("https://api.themoviedb.org/3/movie/popular?api_key=721e0f004fb3c7ef9d923185f3cc41d6")
         .then(response => response.json())
         .then(data => this.setState(
             {peliculas: data.results}
         ))
         .catch(error => console.log(error))
     }
-    // traerMas(){
-    //     fetch(this.state.nextUrl)
-    //     .then(response => response.json())
-    //     .then(data => this.setState(
-    //         {peliculas: data.results.concat(this.state.peliculas),
-    //         nextUrl: data.info.id+1}
-    //     ))
-    //     .catch(error => console.log(error))
-    // }
+    traerMas(){
+        fetch(this.state.nextUrl)
+        .then(response => response.json())
+        .then(data => this.setState(
+            {peliculas: data.results.concat(this.state.peliculas),
+            nextUrl: data.info.id+1}
+        ))
+        .catch(error => console.log(error))
+    }
     //FALTA FILTRAR CONTENIDO
 
 
@@ -35,9 +36,9 @@ class Movies extends Component{
             <React.Fragment>
             <section className='cardContainer'>
 
-                {/* {
+                {
                    this.state.peliculas.map((unaPelicula,idx) => <MovieCard key={unaPelicula.original_title+idx} datosPelicula = {unaPelicula}/>)
-                } */}
+                }
 
             
             <button onClick={()=> this.traerMas()}>Traer Mas</button>

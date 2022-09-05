@@ -9,11 +9,15 @@ class MovieCard extends Component{
         }
     }
 
+
+
     render(){
         return(
              <article className='character-card'>
                 <Link to={`/movies/id/${this.props.datosPelicula.id}`}>
-                    <img src={this.props.datosPelicula.image} alt="" />
+                    <img 
+                    src={`https://image.tmdb.org/t/p/w500${this.props.datosPelicula.poster_path}`} alt="" />
+
                 </Link>
                 <h2>{this.props.datosPelicula.original_title}</h2> 
                 <p>{this.props.datosPelicula.overview}</p> 
