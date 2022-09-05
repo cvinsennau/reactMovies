@@ -18,6 +18,7 @@ class Movies extends Component{
         ))
         .catch(error => console.log(error))
     }
+    
     traerMas(){
         fetch(this.state.nextUrl)
         .then(response => response.json())
@@ -27,6 +28,8 @@ class Movies extends Component{
         ))
         .catch(error => console.log(error))
     }
+
+
     //FALTA FILTRAR CONTENIDO
 
 
