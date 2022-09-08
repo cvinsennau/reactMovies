@@ -2,9 +2,11 @@ import React from "react";
 import {Route, Switch} from 'react-router-dom';
 
 import Home from "./screens/Home/Home";
-import MyMovies from "./screens/MyMovies/MyMovies";
-import Popular from "./screens/Popular/Popular";
-import Upcoming from "./screens/Latest/Latest";
+import Favoritos from "./screens/Favoritos/Favoritos";
+import Peliculas from "./screens/Peliculas/Peliculas";
+import Series from "./screens/Series/Series";
+import Detalle from "./screens/Detalle/Detalle";
+
 import NotFound from "./screens/NotFound/NotFound";
 
 import Navbar from "./components/Navbar/Navbar";
@@ -21,11 +23,13 @@ function App() {
       <Switch>
           <Route path='/' exact={true} component={Home}/>
 
-          <Route path='/MyMovies' component={MyMovies}/>
+          <Route path='/favoritos' component={Favoritos}/>
 
-          <Route path='/Popular' component={Popular}/>
+          <Route path='/peliculas' component={Peliculas}/>
 
-          <Route path='/Upcoming' component={Upcoming}/>
+          <Route path='/detalle/id/:id' component={Detalle}/>
+
+          <Route path='/Series' component={Series}/>
 
           <Route path='' component={NotFound}/>
 

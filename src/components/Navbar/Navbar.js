@@ -5,25 +5,27 @@ import Formulario from "../Formulario/Formulario";
 function Navbar(){
     return (
         <nav>
-            <img className="logo" src="./img/logo.png" alt=""/>
-
+            <Link to={'/'}>
+                <img className="logo" src="./img/logo.png" alt=""/>
+            </Link>
+            
             <ul className="main-nav">
             <li>
                <Link to='/'>Home</Link>
             </li>
             <li>
-                <Link to='/myMovies'>My Movies</Link>
+                <Link to='/Favoritos'>Favoritos</Link>
             </li>
             <li>
-                <Link to='/topRated'>Top Rated</Link>
+                <Link to='/Peliculas'>Películas</Link>
             </li>
             <li>
-                <Link to='/latest'>Releases</Link>
+                <Link to='/Series'>Series</Link>
             </li>
             
             <Formulario/>
 
-        </ul>
+            </ul>
         </nav>
     )
 }

@@ -12,37 +12,37 @@ class Movies extends Component{
         this.state = {
             peliculas: [],
             series: [],
-            pageNumber: 1,
         }
     }
 
     componentDidMount(){
         //Peliculas Populares
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&page=${this.state.pageNumber}`)
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=1`)
         .then(res => res.json())
         .then(data => this.setState(
-            {peliculas: data.results,
-            pageNumber: this.state.pageNumber + 1}
+            {peliculas: data.results}
         ))
         .catch(e => console.log(e))
 
         //Series Populares
-        fetch(`https://api.themoviedb.org/3/tv/popular?api_key="${api_key}&page=${this.state.pageNumber}`)
+        fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${api_key}&language=en-US&page=1`)
         .then(res => res.json())
         .then(data => this.setState(
-            {series: data.results,
-            pageNumber: this.state.pageNumber + 1}
+            {series: data.results}
         ))
         .catch(e => console.log(e))
     }
 
     render(){
+        console.log(this.state.peliculas);
+        console.log(this.state.series);
+
         return(
             <React.Fragment> 
             <div>
                 <h2>Popular movies</h2>
             </div>
-            <section>
+            <section className='cardContainer'>
                 {
                     this.state.peliculas.map((unaPelicula,idx) => <MovieCard key={unaPelicula.title+idx} datosPelicula = {unaPelicula}/>)
                 }
@@ -51,9 +51,9 @@ class Movies extends Component{
             <div>
                 <h2>Popular TV Shows</h2>
             </div>
-            <section>
+            <section className='cardContainer'>
                 {
-                    this.state.series.map((unaSeries,idx) => <SeriesCard key={unaSeries.title+idx} datosSerie = {unaSeries}/>)
+                    this.state.series.map((unaSerie,idx) => <SeriesCard key={unaSerie.name+idx} datosSerie = {unaSerie}/>)
                 }
             </section>
 

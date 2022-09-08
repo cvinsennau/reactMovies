@@ -110,12 +110,43 @@ main {
 /* Characters Container */
 .cardContainer {
     margin-top: 20px;
-    padding: 0 10px;
+    padding: 10px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
+}
+.character-card{
+    color: #777;
+    font-size: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    width: 20%;
+    background: rgb(108, 125, 124);
+    border-radius: 5px;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);    
+}
+.character-card img{
+    width: 100%;
+    margin-bottom: 20px; 
+}
+.character-card:hover,
+.active{
+box-shadow: 0rem 0rem 10px 8px rgb(58 59 69 / 25%);
+}
+.character-card p {
+    margin: 3px 0;
+    color: white;
+    list-style-type: none;
+    text-decoration: none;
+}
+.character-card h2 {
+    margin: 2px 0;
+    color: white;
+    list-style-type: none;
+    text-decoration: none;
 }
 
 /* footer */

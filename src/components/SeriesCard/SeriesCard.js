@@ -9,7 +9,6 @@ class SeriesCard extends Component{
         }
     }
 
-
     render(){
         return(
             <section className='cardContainer'>
