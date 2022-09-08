@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Latest(){
+function Upcoming(){
 
     return(
         <React.Fragment>
@@ -10,4 +10,4 @@ function Latest(){
     )
 }
 
-export default Latest;
+export default Upcoming;
