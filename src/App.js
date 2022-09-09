@@ -5,7 +5,8 @@ import Home from "./screens/Home/Home";
 import Favoritos from "./screens/Favoritos/Favoritos";
 import Peliculas from "./screens/Peliculas/Peliculas";
 import Series from "./screens/Series/Series";
-import Detalle from "./screens/Detalle/Detalle";
+import DetallePelicula from "./screens/DetallePelicula/DetallePelicula";
+import DetalleSerie from "./screens/DetalleSerie/DetalleSerie";
 
 import NotFound from "./screens/NotFound/NotFound";
 
@@ -27,9 +28,11 @@ function App() {
 
           <Route path='/peliculas' component={Peliculas}/>
 
-          <Route path='/detalle/id/:id' component={Detalle}/>
+          <Route path='/pelicula/id/:id' component={DetallePelicula}/>
 
           <Route path='/Series' component={Series}/>
+
+          <Route path='/serie/id/:id' component={DetalleSerie}/>
 
           <Route path='' component={NotFound}/>
 

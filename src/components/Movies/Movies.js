@@ -34,8 +34,8 @@ class Movies extends Component{
     }
 
     render(){
-        console.log(this.state.peliculas);
-        console.log(this.state.series);
+        // console.log(this.state.peliculas);
+        // console.log(this.state.series);
 
         return(
             <React.Fragment> 
@@ -53,7 +53,7 @@ class Movies extends Component{
             </div>
             <section className='cardContainer'>
                 {
-                    this.state.series.map((unaSerie,idx) => <SeriesCard key={unaSerie.name+idx} datosSerie = {unaSerie}/>)
+                    this.state.series.map((unaSerie,idx) => <SeriesCard key={unaSerie.title+idx} datosSerie = {unaSerie}/>)
                 }
             </section>
 

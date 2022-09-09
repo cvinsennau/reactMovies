@@ -5,7 +5,7 @@ class MovieCard extends Component{
     constructor(props){
         super(props)
         this.state={
-            verMas: 'hide',
+            estadoDetalle: 'hide',
             textoDetalle: 'Ver más'
         }
     }
@@ -25,8 +25,8 @@ class MovieCard extends Component{
 
     render(){
         return(
-            <section className='cardContainer'>
-                <Link to={`/detalle/id/${this.props.datosPelicula.id}`}>
+            <section className='character-card'>
+                <Link to={`/pelicula/id/${this.props.datosPelicula.id}`}>
                     <img src={`https://image.tmdb.org/t/p/w500${this.props.datosPelicula.poster_path}`} alt="" />
                 </Link>
 
@@ -34,13 +34,19 @@ class MovieCard extends Component{
                     <h2>{this.props.datosPelicula.title}</h2> 
 
                     {/* No anda el boton */}
-                    <button onClick={() => this.verMas()} className='more'> {this.state.textoDetalle} </button>
-                    <p className={this.state.estadoDetalle}> Sinopsis: {this.props.datosPelicula.overview}</p>
-
+                    <button onClick={()=>this.verMas(this.state.estadoDetalle)}>{this.state.textoDetalle}</button>
+                    <article className={this.state.verMas == true}>
+                        <p className={this.state.estadoDetalle}> Sinopsis: {this.props.datosPelicula.overview}</p>
+                    </article>
+                
 
                     {/* <p>{this.props.datosPelicula.vote_average}</p> */}
                     {/* <p>{this.props.datosPelicula.release_date}</p>  */}
                     {/* <p>{this.props.datosPelicula.genre_ids}</p> */}
+                
+                <Link to={`/pelicula/id/${this.props.datosPelicula.id}`}>
+                    <p>Ir a detalle</p>
+                </Link>
 
                 </article>
                 {/* <button onClick=()>Favoritos</button> */}
