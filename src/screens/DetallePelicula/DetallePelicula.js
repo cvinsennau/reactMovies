@@ -23,6 +23,13 @@ class DetallePelicula extends Component{
     render(){
         return(
             <React.Fragment>
+                  <div className="loader">
+                {this.state.datos === ""?
+                <h3>Cargando...</h3> :
+                <h3>{this.state.peliculas}</h3>}
+                <p>Hola mundo</p>
+
+            </div>
                 <section>
                 <article>
                 <img src={`https://image.tmdb.org/t/p/w500/${this.state.detallePelicula.poster_path}`} alt=""/>

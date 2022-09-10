@@ -39,6 +39,14 @@ class Movies extends Component{
 
         return(
             <React.Fragment> 
+
+            {/*<div>
+                {this.state.datos === ""?
+                <h3>Cargando...</h3> :
+                <h3>{this.state.peliculas}</h3>}
+                <p>Hola mundo</p>
+
+        </div>*/}
             <div>
                 <h2>Popular movies</h2>
             </div>
