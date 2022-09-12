@@ -85,12 +85,11 @@ class MovieCard extends Component{
 
                     {/* No anda el boton */}
                     <button className='button-card'onClick={()=>this.verMas(this.state.estadoDetalle)}>{this.state.textoDetalle}</button>
-                    <button onClick={()=>this.favoritosToggle(this.props.datosPelicula.id)} >{/*<FontAwesomeIcon icon={faStar}/>*/}{this.state.favsMessage}</button>
+                    <button className="button-card"onClick={()=>this.favoritosToggle(this.props.datosPelicula.id)} >{/*<FontAwesomeIcon icon={faStar}/>*/}{this.state.favsMessage}</button>
                     <article className={this.state.verMas == true}>
                         <p className={this.state.estadoDetalle}> Sinopsis: {this.props.datosPelicula.overview}</p>
                     </article>
                 
-
                     {/* <p>{this.props.datosPelicula.vote_average}</p> */}
                     {/* <p>{this.props.datosPelicula.release_date}</p>  */}
                     {/* <p>{this.props.datosPelicula.genre_ids}</p> */}
