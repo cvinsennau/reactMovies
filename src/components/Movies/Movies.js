@@ -3,6 +3,8 @@
 import React, { Component } from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import SeriesCard from "../SeriesCard/SeriesCard";
+import {Link} from 'react-router-dom'
+
 
 let api_key = "721e0f004fb3c7ef9d923185f3cc41d6"
 
@@ -54,6 +56,7 @@ class Movies extends Component{
                 {
                     this.state.peliculas.map((unaPelicula,idx) => <MovieCard key={unaPelicula.title+idx} datosPelicula = {unaPelicula}/>)
                 }
+                <Link to='/peliculas'><h3>Ver todas las peliculas populares</h3></Link>
             </section>
 
             <div>
@@ -63,6 +66,8 @@ class Movies extends Component{
                 {
                     this.state.series.map((unaSerie,idx) => <SeriesCard key={unaSerie.title+idx} datosSerie = {unaSerie}/>)
                 }
+                <Link to='/series'><h3>Ver todas las series populares</h3></Link>
+
             </section>
 
             </React.Fragment>

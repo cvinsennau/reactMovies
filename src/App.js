@@ -13,7 +13,6 @@ import NotFound from "./screens/NotFound/NotFound";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 
-
 function App() {
   return (
     <React.Fragment>
@@ -34,6 +33,8 @@ function App() {
 
           <Route path='/serie/id/:id' component={DetalleSerie}/>
 
+
+        
           <Route path='' component={NotFound}/>
 
         </Switch>

@@ -23,7 +23,7 @@ function Navbar(){
                 <Link to='/series'>Series</Link>
             </li>
             
-            <Formulario/>
+           
 
             </ul>
         </nav>
