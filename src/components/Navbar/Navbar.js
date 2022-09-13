@@ -6,7 +6,7 @@ function Navbar(){
     return (
         <nav>
             <Link to={'/'}>
-                <img className="logo" src="./img/logo.png" alt=""/>
+                <img className="logo" src="./img/Kodak-Motion-Picture-Film-Logo.png" alt=""/>
             </Link>
             
             <ul className="main-nav">
