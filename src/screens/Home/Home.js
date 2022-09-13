@@ -16,7 +16,7 @@ evitarSubmit(event){ // para q no se envie el formulario
     event.preventDefault()
 }
 guardarCambios(event){ //para guardar en el estado lo que escribio el usuario y una vez guardado en el estado que lo busque en fetch
-    this.setState({input: event.target.value}, () => { {/*set state extendido*/}
+    this.setState({input: event.target.value}, () => { /*set state extendido*/
         console.log(this.state.input); 
         this.busqueda() //fetch
     });
@@ -25,7 +25,7 @@ guardarCambios(event){ //para guardar en el estado lo que escribio el usuario y 
 }
 
     busqueda () {
-    if(this.state.input !== ''){ {/*esto es porque cuando borraba y ecribia se me salia y entonces si el input esta vacio no hago el fetch */}
+    if(this.state.input !== ''){ /*esto es porque cuando borraba y ecribia se me salia y entonces si el input esta vacio no hago el fetch */
             fetch(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=en-US&page=1&query=${this.state.input}`)
             .then(res => res.json())
             .then(data => {
