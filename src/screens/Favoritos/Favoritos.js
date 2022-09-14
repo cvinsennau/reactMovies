@@ -26,9 +26,7 @@ class Favoritos extends Component {
                     .then(res => res.json())
                     .then(data => this.addPeliculaAFavoritos(data) )
                     .catch(e => console.log(e))
-
-            })
-                                
+            })                
         }
 
     }
@@ -39,7 +37,12 @@ class Favoritos extends Component {
         this.setState({ peliculas: _peliculas })        
     }
 
- 
+    // addSeriesAFavoritos = (x) => {
+    //     let _series = this.state.series;
+    //     _series.push(x);
+    //     this.setState({ series: _series })        
+    // }
+
 
     render() {
         return (

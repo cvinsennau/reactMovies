@@ -21,6 +21,37 @@ class DetallePelicula extends Component{
         .catch(e => console.log(e))
     }    
 
+    // favoritosToggle(idFav){
+    //     let favoritos = [];
+    //     let recuperoStorage = localStorage.getItem("favoritos")
+
+    //     if(recuperoStorage !== null){
+    //         let favoritosToArray = JSON.parse(recuperoStorage)
+    //         favoritos = favoritosToArray
+    //     }
+
+    //     if(favoritos.includes(id)){ //metodo includes retorna booleano
+
+    //         // quito el elemento favorito del array
+    //         favoritos = favoritos.filter(unId => unId !== id)
+
+    //         // seteo el favsMessage del elemento 
+    //         this.setState({
+    //             favsMessage: "Fav"
+    //         })
+    //     }else{
+    //         favoritos.push(id);
+    //         this.setState({
+    //             favsMessage: "Remove"
+    //         })
+    //     }
+        
+    //     favoritos.push(idFav)
+
+    //     let favoritosToString = JSON.stringify(favoritos)
+    //     localStorage.setItem("favoritos", favoritosToString)
+    // }
+
     render(){
         console.log(this.state.detallePelicula.genres)
 
@@ -46,6 +77,7 @@ class DetallePelicula extends Component{
 
                     {/* <p> Géneros: {this.state.detallePelicula.genres.name}</p> */}
 
+                   
 
                 </article>
                 </section>
