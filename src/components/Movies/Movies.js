@@ -51,7 +51,7 @@ class Movies extends Component{
         </div>*/}
             <div>
                 <h2>Peliculas Populares</h2>
-                <Link to='/peliculas'><h3>Ver todas las peliculas populares</h3></Link>
+                <Link to='/peliculas'><h3>Ver todas las películas populares</h3></Link>
             </div>
             <section className='cardContainer'>
                 {

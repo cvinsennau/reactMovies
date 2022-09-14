@@ -5,7 +5,7 @@ function Peliculas(){
 
     return(
         <React.Fragment>
-            <h2>Peliculas</h2>
+            <h2>Películas</h2>
             <TodasPeliculas/>
             
         </React.Fragment>

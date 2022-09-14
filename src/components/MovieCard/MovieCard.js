@@ -83,16 +83,13 @@ class MovieCard extends Component{
                 <article>
                     <h2>{this.props.datosPelicula.title}</h2> 
 
-                    {/* No anda el boton */}
                     <button className='button-card'onClick={()=>this.verMas(this.state.estadoDetalle)}>{this.state.textoDetalle}</button>
                     <button className="button-card"onClick={()=>this.favoritosToggle(this.props.datosPelicula.id)} >{/*<FontAwesomeIcon icon={faStar}/>*/}{this.state.favsMessage}</button>
+                    
                     <article className={this.state.verMas == true}>
                         <p className={this.state.estadoDetalle}> Sinopsis: {this.props.datosPelicula.overview}</p>
                     </article>
                 
-                    {/* <p>{this.props.datosPelicula.vote_average}</p> */}
-                    {/* <p>{this.props.datosPelicula.release_date}</p>  */}
-                    {/* <p>{this.props.datosPelicula.genre_ids}</p> */}
                 
                 <Link to={`/pelicula/id/${this.props.datosPelicula.id}`}>
                     <p>Ir a detalle</p>

@@ -3,7 +3,7 @@ import MovieCard from "../MovieCard/MovieCard";
 
 let api_key = "721e0f004fb3c7ef9d923185f3cc41d6"
 let show ='Cargando..'; 
-console.log(show);
+
 class TodasPeliculas extends Component {
     constructor(props){
         super(props);
@@ -19,7 +19,8 @@ class TodasPeliculas extends Component {
         fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=${this.state.pagenumber}`)// todo lo que se haga dentro de aca se va a ejecutar en la primer carga del componente
         .then(res =>res.json())
         .then(data => this.setState(
-            {peliculas: data.results, pagenumber:this.state.pagenumber + 1}
+            {peliculas: data.results, 
+            pagenumber: this.state.pagenumber + 1}
         ))
         .catch(e => console.log(e))
     }
@@ -89,13 +90,13 @@ class TodasPeliculas extends Component {
                 {console.log(show)}
 
                     {
-                        show=== 'Cargando..' || show===`No se encontraron resultados de busqueda` ? <h2> {show} </h2> : show.map((unaPelicula,idx) => <MovieCard key={unaPelicula+idx} datosPelicula={unaPelicula}  image={unaPelicula.poster_path} title={unaPelicula.original_title}/>)
+                        show=== 'Cargando..' || show===`No se encontraron resultados de búsqueda` ? <h2> {show} </h2> : show.map((unaPelicula,idx) => <MovieCard key={unaPelicula+idx} datosPelicula={unaPelicula}  image={unaPelicula.poster_path} title={unaPelicula.original_title}/>)
 
                     }
                     
                 </section>
                 
-                <button onClick={()=>this.cargarmas()}>Cargar más peliculas </button>
+                <button onClick={()=>this.cargarmas()}>Cargar más películas </button>
             </React.Fragment>
         )
             

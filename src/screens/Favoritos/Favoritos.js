@@ -18,7 +18,6 @@ class Favoritos extends Component {
         if (recuperoStorage !== null) {
 
             favoritos = JSON.parse(recuperoStorage) // array de ids
-            let peliculas = []
 
             favoritos.forEach(unIdFavorito => {
                 let api_key = "721e0f004fb3c7ef9d923185f3cc41d6";
@@ -40,10 +39,12 @@ class Favoritos extends Component {
         this.setState({ peliculas: _peliculas })        
     }
 
+ 
+
     render() {
         return (
             <>
-                <h2>My favorites Movies</h2>
+                <h2>Mis películas favoritas</h2>
                 <section className='cardContainer'>
                     {
                         this.state.peliculas.map((unaPelicula, idx) => <MovieCard key={unaPelicula.title + idx} datosPelicula={unaPelicula} />)
@@ -51,7 +52,7 @@ class Favoritos extends Component {
                     
 
                 </section>
-                <h2>My favorites Tvshows</h2>
+                <h2>Mis series favoritas</h2>
                 <section className='cardContainer'>
                     {
                         this.state.series.map((unaSerie, idx) => <SeriesCard key={unaSerie.title + idx} datosSerie={unaSerie} />)

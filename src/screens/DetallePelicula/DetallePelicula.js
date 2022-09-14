@@ -7,7 +7,8 @@ class DetallePelicula extends Component{
         super(props);
         this.state ={
             id: this.props.match.params.id,
-            detallePelicula: {}
+            detallePelicula: {},
+            favsMessage: "Fav"
         }
     }
 
@@ -18,29 +19,34 @@ class DetallePelicula extends Component{
             {detallePelicula: data}
         ))
         .catch(e => console.log(e))
-        }
+    }    
 
     render(){
-        return(
-            <React.Fragment>
-                  <div className="loader">
-                {this.state.datos === ""?
-                <h3>Cargando...</h3> :
-                <h3>{this.state.peliculas}</h3>}
-                <p>Hola mundo</p>
+        console.log(this.state.detallePelicula.genres)
 
-            </div>
+        return(
+            
+            <React.Fragment>
+                <div className="loader">
+                {this.state.datos === ""?
+                    <h3>Cargando...</h3> :
+                    <h3>{this.state.peliculas}</h3>}
+                </div>
+
                 <section>
-                <article>
+                <article className="movieImage">
                 <img src={`https://image.tmdb.org/t/p/w500/${this.state.detallePelicula.poster_path}`} alt=""/>
                 </article>
 
-                <article>
+                <article className="movieDetail">
                     <h2>{this.state.detallePelicula.original_title}</h2>
                     <p >{this.state.detallePelicula.overview}</p>
                     <p >Rating: {this.state.detallePelicula.vote_average}</p>
                     <p >Lanzamiento: {this.state.detallePelicula.release_date}</p>
-                    <p >{this.state.detallePelicula.genre_ids}</p>
+
+                    {/* <p> Géneros: {this.state.detallePelicula.genres.name}</p> */}
+
+
                 </article>
                 </section>
             </React.Fragment>
