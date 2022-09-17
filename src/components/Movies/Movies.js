@@ -1,5 +1,3 @@
-//ARCHIVO QUE TRAE LAS PELICULAS MAS POPULARES Y LANZZAMIENTOS
-
 import React, { Component } from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import SeriesCard from "../SeriesCard/SeriesCard";

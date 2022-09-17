@@ -32,9 +32,19 @@ class DetalleSerie extends Component{
                 <article>
                     <h2>{this.state.detalleSerie.name}</h2>
                     <p >{this.state.detalleSerie.overview}</p>
-                    <p >Rating: {this.state.detalleSerie.vote_average}</p>
-                    <p >Lanzamiento: {this.state.detalleSerie.first_air_date}</p>
-                    <p >{this.state.detalleSerie.genre_ids}</p>
+
+                    <li>
+                        <p >Rating: {this.state.detalleSerie.vote_average}</p>
+                        <p >Lanzamiento: {this.state.detalleSerie.first_air_date}</p>
+                        <p> Temporadas: {this.state.detalleSerie.number_of_seasons}</p>
+                        <p> Episodios: {this.state.detalleSerie.number_of_episodes}</p>
+                    </li>
+
+
+                    {/* <ul>
+                        {this.state.detalleSerie.genres.map((genres) => <li> Géneros:{genres.name} </li>)}
+                    </ul> */}
+
                 </article>
 
                 </section>

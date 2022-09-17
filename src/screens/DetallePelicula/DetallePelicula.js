@@ -6,17 +6,18 @@ class DetallePelicula extends Component{
     constructor(props){
         super(props);
         this.state ={
-            id: this.props.match.params.id,
-            detallePelicula: {},
+            detalleMovie: '',
             favsMessage: "Fav"
         }
     }
 
     componentDidMount(){
-        fetch(`https://api.themoviedb.org/3/movie/${this.state.id}?api_key=${api_key}&language=en-US`)
+        const id = this.props.match.params.id;
+
+        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}&language=en-US`)
         .then(res => res.json())
         .then(data => this.setState(
-            {detallePelicula: data}
+            {detalleMovie: data}
         ))
         .catch(e => console.log(e))
     }    
@@ -53,7 +54,8 @@ class DetallePelicula extends Component{
     // }
 
     render(){
-        console.log(this.state.detallePelicula.genres)
+        console.log(this.state.detalleMovie)
+        console.log(this.state.detalleMovie.genres)
 
         return(
             
@@ -66,17 +68,22 @@ class DetallePelicula extends Component{
 
                 <section>
                 <article className="movieImage">
-                <img src={`https://image.tmdb.org/t/p/w500/${this.state.detallePelicula.poster_path}`} alt=""/>
+                <img src={`https://image.tmdb.org/t/p/w500/${this.state.detalleMovie.poster_path}`} alt=""/>
                 </article>
 
                 <article className="movieDetail">
-                    <h2>{this.state.detallePelicula.original_title}</h2>
-                    <p >{this.state.detallePelicula.overview}</p>
-                    <p >Rating: {this.state.detallePelicula.vote_average}</p>
-                    <p >Lanzamiento: {this.state.detallePelicula.release_date}</p>
-
-                    {/* <p> Géneros: {this.state.detallePelicula.genres.name}</p> */}
-
+                    <h2> {this.state.detalleMovie.original_title}</h2>
+                    <p> {this.state.detalleMovie.overview}</p>
+                    <li>
+                        <p> Rating: {this.state.detalleMovie.vote_average}</p>
+                        <p> Lanzamiento: {this.state.detalleMovie.release_date}</p>
+                        <p> Duración: {this.state.detalleMovie.runtime} min</p>
+                    </li>
+                    
+                    {/* Tira error no se porque */}
+                    {/* <ul>
+                        {this.state.detallePelicula.genres.map((genres) => <li> Géneros:{genres.name} </li>)}
+                    </ul> */}
                    
 
                 </article>
