@@ -143,10 +143,14 @@ main {
     padding: 2%;
     background-color: white;
 }
+.poster-path{
+    text-align: center;
+}
 .character-card img{
     width: 60%;
     margin-bottom: 20px; 
     border-radius: 20px;
+
 }
 .character-card:hover,
 .active{
@@ -167,10 +171,13 @@ box-shadow: 0rem 0rem 10px 8px rgb(58 59 69 / 25%);
 footer {
     background-color: #dedede;
     text-align: center;
-    padding: 40px 0;
     color: #666;
     bottom: 0;
     width: 100%;
+    position: fixed;
+}
+.footer {
+    font-size: 10px;
 }
 
 /* From uiverse.io by @alexruix */
@@ -263,7 +270,8 @@ footer {
     font-family: inherit;
     letter-spacing: .25px;
     line-height: normal;
-    padding: 11px 24px;
+    padding: 11px 20px;
+    margin: 5px 5px;
     transition: background box-shadow 280ms ease;
    }
    

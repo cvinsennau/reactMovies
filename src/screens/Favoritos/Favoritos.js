@@ -8,6 +8,7 @@ class Favoritos extends Component {
         this.state = {
             peliculas: [],
             series: [],
+            favsMessage: "Fav",
         }
     }
 
@@ -16,18 +17,22 @@ class Favoritos extends Component {
         let recuperoStorage = localStorage.getItem("favoritos")
         
         if (recuperoStorage !== null) {
-
-            favoritos = JSON.parse(recuperoStorage) // array de ids
+            favoritos = JSON.parse(recuperoStorage) 
 
             favoritos.forEach(unIdFavorito => {
                 let api_key = "721e0f004fb3c7ef9d923185f3cc41d6";
 
-                fetch(`https://api.themoviedb.org/3/movie/${unIdFavorito}?api_key=${api_key}&language=en-US&page=1`)
-                    .then(res => res.json())
-                    .then(data => this.addPeliculaAFavoritos(data) )
-                    .catch(e => console.log(e))
-            })                
+                fetch(`https://api.themoviedb.org/3/movie/${unIdFavorito}?api_key=${api_key}&language=en-US`)
+                .then(res => res.json())
+                .then(data => 
+                    this.addPeliculaAFavoritos(data))
+                .catch(e => console.log(e))
+            })
+            this.setState({
+                favsMessage: "Remove"
+            })            
         }
+
 
     }
 
@@ -48,7 +53,9 @@ class Favoritos extends Component {
         return (
             <>
                 <h2>Mis películas favoritas</h2>
+                
                 <section className='cardContainer'>
+
                     {
                         this.state.peliculas.map((unaPelicula, idx) => <MovieCard key={unaPelicula.title + idx} datosPelicula={unaPelicula} />)
                     }
