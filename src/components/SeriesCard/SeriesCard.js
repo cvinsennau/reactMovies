@@ -8,7 +8,7 @@ class SeriesCard extends Component{
         this.state={
             estadoDetalle: 'hide',
             textoDetalle: 'Ver más',
-            favsMessage: "Fav"
+            favsMessage: "Agregar a Fav"
         }
     }
 
@@ -31,13 +31,13 @@ class SeriesCard extends Component{
 
         if (favoritos.includes(this.props.datosSerie.id)) {
             this.setState({
-                favsMessage: "Remove"
+                favsMessage: "Quitar de Fav"
             })
         }
 
     }
 
-    favoritosToggle(id) {
+    favoritosToggle(id) {   
 
         let _favoritosClass = new FavoritosClass("seriesFavoritas");
         _favoritosClass.Toggle(id)
@@ -46,6 +46,7 @@ class SeriesCard extends Component{
             favsMessage: _favoritosClass.getMessage()
         })
         
+        if (this.props.onToggleFav) this.props.onToggleFav();
     }
 
 

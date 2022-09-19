@@ -9,7 +9,7 @@ class MovieCard extends Component{
         this.state={
             estadoDetalle: 'hide',
             textoDetalle: 'Ver más',
-            favsMessage: "Fav"
+            favsMessage: "Agregar a Fav"
         }
     }
 
@@ -30,14 +30,17 @@ class MovieCard extends Component{
         let _favoritosClass = new FavoritosClass("peliculasFavoritas");
         let favoritos = _favoritosClass.getFavoritosFromStorage();
 
-        if (favoritos.includes(this.props.datosPelicula.id)) {
-            this.setState({
-                favsMessage: "Remove"
+        // Busco el id de la peli en favoritos, si está le cambio el boton de fav a remove
+        if (favoritos.includes(this.props.datosPelicula.id)) { //
+            this.setState({                                     //gracias a la propiedad setState cambio el estado y vuelvo a renderizar la moviecard
+                favsMessage: "Quitar de Fav"
             })
         }
 
     }
 
+    // Metodo que cambia la condicion de favorito, si esta en favorito lo quita, si no esta lo agrega
+    // Usa clase FavoritosClass para implementar 
     favoritosToggle(id) {
 
         let _favoritosClass = new FavoritosClass("peliculasFavoritas");
@@ -47,8 +50,8 @@ class MovieCard extends Component{
             favsMessage: _favoritosClass.getMessage()
         })
 
-        if (this.props.onToggleFav)
-            this.props.onToggleFav();
+        // Si la propiedad onToggleFav esta definida, la ejecutamos; depende de las props del padre. se usa solo en favoritos
+        if (this.props.onToggleFav) this.props.onToggleFav();
         
     }
 

@@ -11,7 +11,7 @@ function Navbar(){
             
             <ul className="main-nav">
             <li>
-               <Link to='/'>Home</Link>
+               <Link to='/' exact="true">Home</Link>
             </li>
             <li>
                 <Link to='/favoritos'>Favoritos</Link>
