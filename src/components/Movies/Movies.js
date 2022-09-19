@@ -1,5 +1,3 @@
-//ARCHIVO QUE TRAE LAS PELICULAS MAS POPULARES Y LANZZAMIENTOS
-
 import React, { Component } from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import SeriesCard from "../SeriesCard/SeriesCard";
@@ -44,15 +42,15 @@ class Movies extends Component{
             <React.Fragment> 
 
             {/*<div>
-                {this.state.datos === ""?
+                {this.state.peliculas === ""?
                 <h3>Cargando...</h3> :
                 <h3>{this.state.peliculas}</h3>}
                 <p>Hola mundo</p>
 
         </div>*/}
             <div>
-                <h2>Peliculas Populares</h2>
-                <Link to='/peliculas'><h3>Ver todas las peliculas populares</h3></Link>
+                <h2>Películas Populares</h2>
+                <Link to='/peliculas'><h3>Ver todas</h3></Link>
             </div>
             <section className='cardContainer'>
                 {
@@ -63,7 +61,7 @@ class Movies extends Component{
 
             <div>
                 <h2>Series Populares</h2>
-                <Link to='/series'><h3>Ver todas las series populares</h3></Link>
+                <Link to='/series'><h3>Ver todas</h3></Link>
             </div>
             <section className='cardContainer'>
                 {

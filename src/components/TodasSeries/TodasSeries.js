@@ -47,7 +47,7 @@ class TodasPeliculas extends Component {
             console.log(this.state.input); 
             let results = []
             results= this.state.peliculas.filter((unapelicula)=>{
-                return unapelicula.title.toLowerCase().includes(event.target.value)
+                return unapelicula.name.toLowerCase().includes(event.target.value)
                 //esoy definiendo una variable con las peliculas que me traiga lo que el usuario escribe, unapelicula es lo mismo que decir peliculas[i], osea que estoy recorriendoe el array y chequiando que el titulo de cada pelicula coincida con lo que el usuario escribio 
                 //que me devuelva con return si el titulo de cada pelicula incluye lo que escribio el usuario, lo paso a lowercase y me fijo si me trae lo q escribio el usuario bevent.target.value, si esto es true, se guarda la pelicula en la variable results 
             }) 
@@ -89,7 +89,7 @@ class TodasPeliculas extends Component {
                 {console.log(show)}
 
                     {
-                        show=== 'Cargando..' || show===`No se encontraron resultados de busqueda` ? <h2> {show} </h2> : show.map((unaPelicula,idx) => <MovieCard key={unaPelicula+idx} datosPelicula={unaPelicula}  image={unaPelicula.poster_path} title={unaPelicula.original_title}/>)
+                        show=== 'Cargando..' || show===`No se encontraron resultados de busqueda` ? <h2> {show} </h2> : show.map((unaPelicula,idx) => <MovieCard key={unaPelicula+idx} datosPelicula={unaPelicula}  image={unaPelicula.poster_path} title={unaPelicula.original_name}/>)
 
                     }
                     

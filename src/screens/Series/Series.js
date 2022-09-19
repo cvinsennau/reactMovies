@@ -6,7 +6,6 @@ function Series(){
     return(
         <React.Fragment>
             <h2>Series</h2>
-           
             <TodasSeries/>
             
         </React.Fragment>
