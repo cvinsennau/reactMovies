@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import './MovieCard.css'
+import FavoritosClass from '../../common/FavoritosClass';
 
 class MovieCard extends Component{
     constructor(props){
@@ -24,34 +25,34 @@ class MovieCard extends Component{
         }
     }
 
-    favoritosToggle(id){
-        let favoritos = [];
-        let recuperoStorage = localStorage.getItem("favoritos")
+    componentDidMount() {
 
-        if(recuperoStorage !== null){
-            let favoritosToArray = JSON.parse(recuperoStorage)
-            favoritos = favoritosToArray
-        }
+        let _favoritosClass = new FavoritosClass("peliculasFavoritas");
+        let favoritos = _favoritosClass.getFavoritosFromStorage();
 
-        if(favoritos.includes(id)){ //metodo includes retorna booleano
-
-            // quito el elemento favorito del array
-            favoritos = favoritos.filter(unId => unId !== id)
-
-            // seteo el favsMessage del elemento 
-            this.setState({
-                favsMessage: "Fav"
-            })
-        }else{
-            favoritos.push(id);
+        if (favoritos.includes(this.props.datosPelicula.id)) {
             this.setState({
                 favsMessage: "Remove"
             })
         }
-    
-        let favoritosToString = JSON.stringify(favoritos)
-        localStorage.setItem("favoritos", favoritosToString)       
+
     }
+
+    favoritosToggle(id) {
+
+        let _favoritosClass = new FavoritosClass("peliculasFavoritas");
+        _favoritosClass.Toggle(id)
+
+        this.setState( {
+            favsMessage: _favoritosClass.getMessage()
+        })
+
+        if (this.props.onToggleFav)
+            this.props.onToggleFav();
+        
+    }
+
+    
 
     render(){
         return(
