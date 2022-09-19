@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./DetallePelicula.css"
+import FavoritosClass from "../../common/FavoritosClass";
+
 
 let api_key = "7a176cc95147be6e695be2faf0e8ff9c"
 
@@ -14,7 +16,8 @@ class DetallePelicula extends Component{
 
     componentDidMount(){
         const id = this.props.match.params.id;
-
+        
+        
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}&language=en-US`)
         .then(res => res.json())
         .then(data => this.setState(
@@ -23,28 +26,16 @@ class DetallePelicula extends Component{
         .catch(e => console.log(e))
     }    
 
-    favoritosToggle(id){
-        let favoritos = [];
-        let recuperoStorage = localStorage.getItem("favoritos")
 
-        if(recuperoStorage !== null){
-            let favoritosToArray = JSON.parse(recuperoStorage)
-            favoritos = favoritosToArray
-        } 
-        if(favoritos.includes(id)){ 
-            favoritos = favoritos.filter(unId => unId !== id)
-            this.setState({
-                favsMessage: "Fav"
-            })
-        }else{
-            favoritos.push(id);
-            this.setState({
-                favsMessage: "Remove"
-            })
-        }       
+    favoritosToggle(id) {
 
-        let favoritosToString = JSON.stringify(favoritos)
-        localStorage.setItem("favoritos", favoritosToString)
+        let _favoritosClass = new FavoritosClass("peliculasFavoritas");
+        _favoritosClass.Toggle(id)
+
+        this.setState( {
+            favsMessage: _favoritosClass.getMessage()
+        })
+        
     }
 
     render(){
@@ -55,9 +46,9 @@ class DetallePelicula extends Component{
             
             <React.Fragment>
                 {/* <div className="loader">
-                    {this.state.datos === ""?
+                    {this.state.detalleMovie === ""?
                         <h3>Cargando...</h3> :
-                        <h3>{this.state.peliculas}</h3>
+                        <h3>{this.state.detallePelicula}</h3>
                     }
                 </div> */}
 
@@ -74,7 +65,7 @@ class DetallePelicula extends Component{
                         <p> Rating: {this.state.detalleMovie.vote_average}</p>
                         <p> Lanzamiento: {this.state.detalleMovie.release_date}</p>
                         <p> Duración: {this.state.detalleMovie.runtime} min</p>
-                        <p>Género/s: {this.state.detalleMovie.genres && this.state.detalleMovie.genres.map((genres) => <li> {genres.name} </li>)}</p>
+                        <p>Género/s: {this.state.detalleMovie.genres && this.state.detalleMovie.genres.map((genres) => <span> {genres.name} </span>)}</p>
                     </li>
 
                     <button className="button-card" onClick={()=>this.favoritosToggle(this.state.detalleMovie.id)}> {this.state.favsMessage}</button>

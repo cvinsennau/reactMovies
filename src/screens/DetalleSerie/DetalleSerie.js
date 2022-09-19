@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./DetalleSerie.css"
+import FavoritosClass from "../../common/FavoritosClass";
 
 let api_key = "7a176cc95147be6e695be2faf0e8ff9c"
 
@@ -23,29 +24,18 @@ class DetalleSerie extends Component{
         .catch(e => console.log(e))
     }
 
-        // favoritosToggle(id){
-        //     let favoritos = [];
-        //     let recuperoStorage = localStorage.getItem("favoritos")
     
-        //     if(recuperoStorage !== null){
-        //         let favoritosToArray = JSON.parse(recuperoStorage)
-        //         favoritos = favoritosToArray
-        //     } 
-        //     if(favoritos.includes(id)){ 
-        //         favoritos = favoritos.filter(unId => unId !== id)
-        //         this.setState({
-        //             favsMessage: "Fav"
-        //         })
-        //     }else{
-        //         favoritos.push(id);
-        //         this.setState({
-        //             favsMessage: "Remove"
-        //         })
-        //     }       
-    
-        //     let favoritosToString = JSON.stringify(favoritos)
-        //     localStorage.setItem("favoritos", favoritosToString)
-        // }
+
+    favoritosToggle(id) {
+
+        let _favoritosClass = new FavoritosClass("peliculasFavoritas");
+        _favoritosClass.Toggle(id)
+
+        this.setState( {
+            favsMessage: _favoritosClass.getMessage()
+        })
+        
+    }
 
     render(){
         return(
@@ -65,11 +55,13 @@ class DetalleSerie extends Component{
                         <p >Lanzamiento: {this.state.detalleSerie.first_air_date}</p>
                         <p> Temporadas: {this.state.detalleSerie.number_of_seasons}</p>
                         <p> Episodios: {this.state.detalleSerie.number_of_episodes}</p>
-                        <p>Género/s: {this.state.detalleSerie.genres && this.state.detalleSerie.genres.map((genres) => <li> {genres.name} </li>)}</p>
+                        <p>Género/s: {this.state.detalleSerie.genres && this.state.detalleSerie.genres.map((genres) => {
+                            return <span> {genres.name} </span>;
+                        })}</p>
 
                     </li>
 
-                    {/* <button className="button-card" onClick={()=>this.favoritosToggle(this.state.detalleSerie.id)}> {this.state.favsMessage}</button> */}
+                     <button className="button-card" onClick={()=>this.favoritosToggle(this.state.detalleSerie.id)}> {this.state.favsMessage}</button> 
 
 
 
