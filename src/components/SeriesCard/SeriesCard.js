@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import './SerieCard.css'
 
+
 class SeriesCard extends Component{
     constructor(props){
         super(props)
@@ -25,7 +26,6 @@ class SeriesCard extends Component{
         }
     }
 
-<<<<<<< HEAD
     componentDidMount() {
 
         let _favoritosClass = new FavoritosClass("seriesFavoritas");
@@ -51,8 +51,6 @@ class SeriesCard extends Component{
         if (this.props.onToggleFav) this.props.onToggleFav();
     }
 
-=======
->>>>>>> 0ecf7e6b44e3b71248c1c3cb16a05d91329147ef
 
     render(){
         return(
@@ -71,12 +69,12 @@ class SeriesCard extends Component{
                 </Link>
                 </article>
                 <button className='button-card'onClick={()=>this.verMas(this.state.estadoDetalle)}>{this.state.textoDetalle}</button> {/*boton que ejecuta la funcion */}
-                    <button className="button-card"onClick={()=>this.favoritosToggle(this.props.datosPelicula.id)} >{/*<FontAwesomeIcon icon={faStar}/>*/}{this.state.favsMessage}</button>
+                    <button className="button-card"onClick={()=>this.favoritosToggle(this.props.datosPelicula.id)} >{this.state.favsMessage}</button>
 
                     <article className={this.state.verMas === true}>
                         <p className={this.state.estadoDetalle}> Sinopsis: {this.props.datosSerie.overview}</p>
                     </article>                
-                {/* <button onClick=''>Favoritos</button> */}
+                
             </section>
         )
     }
