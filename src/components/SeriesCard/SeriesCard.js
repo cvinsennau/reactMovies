@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import FavoritosClass from '../../common/FavoritosClass';
+import './SerieCard.css'
 
 class SeriesCard extends Component{
     constructor(props){
         super(props)
         this.state={
+        
             estadoDetalle: 'hide',
             textoDetalle: 'Ver más',
             favsMessage: "Agregar a Fav"
@@ -24,6 +25,7 @@ class SeriesCard extends Component{
         }
     }
 
+<<<<<<< HEAD
     componentDidMount() {
 
         let _favoritosClass = new FavoritosClass("seriesFavoritas");
@@ -49,33 +51,32 @@ class SeriesCard extends Component{
         if (this.props.onToggleFav) this.props.onToggleFav();
     }
 
+=======
+>>>>>>> 0ecf7e6b44e3b71248c1c3cb16a05d91329147ef
 
     render(){
         return(
             <section className='character-card'>
-                <article className="poster-path">
-                    <Link to={`/serie/id/${this.props.datosSerie.id}`}>
+                <Link to={`/serie/id/${this.props.datosSerie.id}`}>
                     <img src={`https://image.tmdb.org/t/p/w500${this.props.datosSerie.poster_path}`} alt="" />
-                    </Link>
-                </article>
-                
+                </Link>
 
                 <article>
                     <h2>{this.props.datosSerie.name}</h2> 
 
-                    <button className='button-card'onClick={()=>this.verMas(this.state.estadoDetalle)}>{this.state.textoDetalle}</button>
-                    
-                    <button className="button-card" onClick={() => this.favoritosToggle(this.props.datosSerie.id)} >{this.state.favsMessage}</button>
+                     
+
+                <Link to={`/serie/id/${this.props.datosSerie.id}`}>
+                    <p>Ir a detalle</p>
+                </Link>
+                </article>
+                <button className='button-card'onClick={()=>this.verMas(this.state.estadoDetalle)}>{this.state.textoDetalle}</button> {/*boton que ejecuta la funcion */}
+                    <button className="button-card"onClick={()=>this.favoritosToggle(this.props.datosPelicula.id)} >{/*<FontAwesomeIcon icon={faStar}/>*/}{this.state.favsMessage}</button>
+
                     <article className={this.state.verMas === true}>
                         <p className={this.state.estadoDetalle}> Sinopsis: {this.props.datosSerie.overview}</p>
-                    </article>
-                    
-                    <p><Link to={`/serie/id/${this.props.datosSerie.id}`}>Ver detalle
-                    </Link></p>
-                
-                </article>
-
-
+                    </article>                
+                {/* <button onClick=''>Favoritos</button> */}
             </section>
         )
     }

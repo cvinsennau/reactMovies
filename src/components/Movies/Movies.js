@@ -28,7 +28,8 @@ class Movies extends Component{
         fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${api_key}&language=en-US&page=1`)
         .then(res => res.json())
         .then(data => this.setState(
-            {series: data.results}
+            {series: data.results},()=> console.log(data.results) 
+
         ))
         .catch(e => console.log(e))
     }
