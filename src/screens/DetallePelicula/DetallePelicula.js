@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./DetallePelicula.css"
 import FavoritosClass from "../../common/FavoritosClass";
 
-
 let api_key = "7a176cc95147be6e695be2faf0e8ff9c"
 
 class DetallePelicula extends Component {
@@ -17,7 +16,6 @@ class DetallePelicula extends Component {
     componentDidMount() {
         const id = this.props.match.params.id;
 
-
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}&language=en-US`)
             .then(res => res.json())
             .then(data => this.setState(
@@ -25,11 +23,7 @@ class DetallePelicula extends Component {
             ))
             .catch(e => console.log(e))
 
-
-
-
     }
-
 
     favoritosToggle(id) {
 

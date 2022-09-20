@@ -17,6 +17,7 @@ class Movies extends Component {
 
     componentDidMount() {
         //Peliculas Populares
+        //-----------------------------------------------------------------------------------------
         fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=1`)
             .then(res => res.json())
             .then(data => this.setState(
@@ -25,6 +26,7 @@ class Movies extends Component {
             .catch(e => console.log(e))
 
         //Series Populares
+        //--------------------------------------------------------------------------------------
         fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${api_key}&language=en-US&page=1`)
             .then(res => res.json())
             .then(data => this.setState(
@@ -41,35 +43,34 @@ class Movies extends Component {
         return (
             <React.Fragment>
 
-                {/*<div>
-                {this.state.peliculas === ""?
-                <h3>Cargando...</h3> :
-                <h3>{this.state.peliculas}</h3>}
-                <p>Hola mundo</p>
-
-        </div>*/}
                 <div>
-                    <h2>Películas Populares</h2>
-                    <Link to='/peliculas'><h3>Ver todas</h3></Link>
+                    {/*this.state.peliculas === "" ?
+                        <div className="loader"> <h3>Cargando...</h3></div> :*/}                                         
+                        
+                    <div>
+                        <h2>Películas Populares</h2>
+                        <Link to='/peliculas'><h3>Ver todas</h3></Link>
+                    </div>
+                    <section className='cardContainer'>
+                        {
+                            this.state.peliculas.map((unaPelicula, idx) => <MovieCard key={unaPelicula.title + idx} datosPelicula={unaPelicula} />)
+                        }
+                    
+                    </section>
+
+                    <div>
+                        <h2>Series Populares</h2>
+                        <Link to='/series'><h3>Ver todas</h3></Link>
+                    </div>
+                    <section className='cardContainer'>
+                        {
+                            this.state.series.map((unaSerie, idx) => <SeriesCard key={unaSerie.title + idx} datosSerie={unaSerie} />)
+                        }
+
+
+                    </section>
+                                
                 </div>
-                <section className='cardContainer'>
-                    {
-                        this.state.peliculas.map((unaPelicula, idx) => <MovieCard key={unaPelicula.title + idx} datosPelicula={unaPelicula} />)
-                    }
-
-                </section>
-
-                <div>
-                    <h2>Series Populares</h2>
-                    <Link to='/series'><h3>Ver todas</h3></Link>
-                </div>
-                <section className='cardContainer'>
-                    {
-                        this.state.series.map((unaSerie, idx) => <SeriesCard key={unaSerie.title + idx} datosSerie={unaSerie} />)
-                    }
-
-
-                </section>
 
             </React.Fragment>
         )
