@@ -10,7 +10,7 @@ root.render(
 
 root.render(
   <BrowserRouter>
-  <App />
+    <App />
   </BrowserRouter>
 );
 

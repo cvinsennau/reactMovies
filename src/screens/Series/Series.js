@@ -1,13 +1,13 @@
 import React from 'react';
 import TodasSeries from '../../components/TodasSeries/TodasSeries';
 
-function Series(){
+function Series() {
 
-    return(
+    return (
         <React.Fragment>
             <h2>Series</h2>
-            <TodasSeries/>
-            
+            <TodasSeries />
+
         </React.Fragment>
     )
 }

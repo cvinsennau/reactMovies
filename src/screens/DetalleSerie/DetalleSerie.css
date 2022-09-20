@@ -1,14 +1,16 @@
-.movieImage{
+.movieImage {
     width: 30%;
     float: left;
     text-align: center;
     padding-top: 40px;
 }
-.movieImage img{
+
+.movieImage img {
     width: 60%;
     border-radius: 20px;
 }
-.movieDetail{
+
+.movieDetail {
     width: 70%;
     float: right;
     padding: 10px;
@@ -16,13 +18,13 @@
     font-size: 15px;
     background: #fff;
     border-radius: 5px;
-    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15);
     margin-top: 40px;
     margin-bottom: 150px;
 }
-.movieDetail h2{
+
+.movieDetail h2 {
     font-weight: bold;
     color: #000000;
     text-transform: uppercase;
 }
-

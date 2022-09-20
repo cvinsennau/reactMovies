@@ -12,13 +12,13 @@ class Favoritos extends Component {
     }
 
     componentDidMount() {
-        
+
         this.getFavoritosData();
 
     }
 
     getFavoritosData() {
-        let favoritos = [];        
+        let favoritos = [];
         let recuperoStorage = localStorage.getItem("peliculasFavoritas") // obtengo los valores de la propiedad guardada en el localStorage 
         this.state.peliculas = [];                                          // recibe un parametro: el nombre de la propiedad de la que queremos obtener su valor
         this.state.series = [];
@@ -26,7 +26,7 @@ class Favoritos extends Component {
         if (recuperoStorage !== null) {
 
             favoritos = JSON.parse(recuperoStorage) // array de ids
-            
+
 
             favoritos.forEach(unIdFavorito => {
                 let api_key = "721e0f004fb3c7ef9d923185f3cc41d6";
@@ -39,13 +39,13 @@ class Favoritos extends Component {
             })
 
         }
-            let recuperoStorageSeries = localStorage.getItem("seriesFavoritas")
+        let recuperoStorageSeries = localStorage.getItem("seriesFavoritas")
 
         if (recuperoStorageSeries !== null) {
 
             favoritos = JSON.parse(recuperoStorageSeries) // array de ids
-            
-            favoritos.forEach(unIdFavorito => {    
+
+            favoritos.forEach(unIdFavorito => {
                 let api_key = "721e0f004fb3c7ef9d923185f3cc41d6";
 
                 fetch(`https://api.themoviedb.org/3/tv/${unIdFavorito}?api_key=${api_key}&language=en-US&page=1`)
@@ -71,19 +71,19 @@ class Favoritos extends Component {
     }
 
     // Metodo que ejecuta cuando se borra un favorito desde la card. Entonces recargo toda la lista nuevamente. en favoritos
-    onToggle = () => {        
+    onToggle = () => {
         console.log("onToggle");
-        this.getFavoritosData();        
+        this.getFavoritosData();
     }
 
     render() {
         return (
             <>
-             
+
                 <h2>My favorites Movies</h2>
                 <section className='cardContainer'>
                     {
-                        this.state.peliculas.map((unaPelicula, idx) => 
+                        this.state.peliculas.map((unaPelicula, idx) =>
                             <MovieCard key={unaPelicula.title + idx} datosPelicula={unaPelicula} onToggleFav={this.onToggle} />) // pasamos las props al componente hijo 
                     }
                 </section>
@@ -91,7 +91,7 @@ class Favoritos extends Component {
                 <h2>My favorites Tvshows</h2>
                 <section className='cardContainer'>
                     {
-                        this.state.series.map((unaSerie, idx) => 
+                        this.state.series.map((unaSerie, idx) =>
                             <SeriesCard key={unaSerie.title + idx} datosSerie={unaSerie} onToggleFav={this.onToggle} />)  //
                     }
                 </section>

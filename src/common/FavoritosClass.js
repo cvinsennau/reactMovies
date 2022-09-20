@@ -1,10 +1,10 @@
 // Creo un Clase en js 
-
+//--------------------
 class FavoritosClass {
-
 
     // Constructor, le paso el nombre del storage. Puede ser Peliculas o series
     //Asigno propiedades a la clase
+    //--------------------------------------------------------------------------
     constructor(storageItemName) {
         this.message = "";
         this.storageItem = storageItemName
@@ -15,13 +15,13 @@ class FavoritosClass {
     // -------------------------------------------------------------------
     Toggle = (videoId) => {
 
-        let favoritos = this.getFavoritosFromStorage();         //recibo los favoritos del localStorage y los asigno a una variable tipo array
+        let favoritos = this.getFavoritosFromStorage(); //recibo los favoritos del localStorage y los asigno a una variable tipo array
 
         if (favoritos.includes(videoId)) { //metodo includes 
-             // Si esta en favoritos, lo quito
+            // Si esta en favoritos, lo quito
 
             // quito el elemento favorito del array
-            let favoritosFiltrados = favoritos.filter(unId => unId !== videoId) 
+            let favoritosFiltrados = favoritos.filter(unId => unId !== videoId)
 
             // seteo el favsMessage del elemento 
             this.message = "Agregar a Fav"
@@ -36,14 +36,12 @@ class FavoritosClass {
 
         }
 
-        
-
     }
 
     // Toma el mensaje luego de un toggle
     // ----------------------------------------
     getMessage = () => { return this.message; }
-    
+
 
     // Toma los favoritos desde el storage
     // -----------------------------------
