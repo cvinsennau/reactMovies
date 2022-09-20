@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import './SerieCard.css'
+import FavoritosClass from '../../common/FavoritosClass';
 
 
 class SeriesCard extends Component{
