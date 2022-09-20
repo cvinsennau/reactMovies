@@ -63,18 +63,16 @@ class SeriesCard extends Component{
                 <article>
                     <h2>{this.props.datosSerie.name}</h2> 
 
-                     
-
-                <Link to={`/serie/id/${this.props.datosSerie.id}`}>
-                    <p>Ir a detalle</p>
-                </Link>
                 </article>
                 <button className='button-card'onClick={()=>this.verMas(this.state.estadoDetalle)}>{this.state.textoDetalle}</button> {/*boton que ejecuta la funcion */}
                     <button className="button-card"onClick={()=>this.favoritosToggle(this.props.datosSerie.id)} >{this.state.favsMessage}</button>
 
                     <article className={this.state.verMas === true}>
                         <p className={this.state.estadoDetalle}> Sinopsis: {this.props.datosSerie.overview}</p>
-                    </article>                
+                    </article>   
+                    <Link to={`/serie/id/${this.props.datosSerie.id}`}>
+                    <p>Ver detalle</p>
+                </Link>             
                 
             </section>
         )
