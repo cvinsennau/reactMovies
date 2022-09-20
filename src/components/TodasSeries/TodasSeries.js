@@ -95,7 +95,7 @@ class TodasPeliculas extends Component {
                     
                 </section>
                 
-                <button onClick={()=>this.cargarmas()}>Cargar más series </button>
+                <button className="button-card" onClick={()=>this.cargarmas()}>Cargar más series </button>
             </React.Fragment>
         )
             
